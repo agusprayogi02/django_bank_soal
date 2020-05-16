@@ -1,0 +1,65 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}
+Input Soal
+{% endblock title %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h5 class="m-0 font-weight-bold text-primary">Input Soal</h5>
+        </div>
+        <div class="card-body p-4">
+            <form method="POST" action="/adm/input/">
+                {% csrf_token %}
+                <!-- <div class="mb-3 text-danger">{{form.errors}}</div> -->
+                <h5>Masukkan Soal: </h5>
+                {{form.user_made}}
+                <div class="mb-3">
+                    {{ form.Soal}}
+                </div>
+                <p class="h5">Masukkan Semua Pilihan Jawaban !!</p>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="id_jawab1" class="col-sm-2 col-form-label">Jawab1</label>
+                            <div class="col-sm-10">
+                                {{form.jawab1}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_jawab2" class="col-sm-2 col-form-label">Jawab2</label>
+                            <div class="col-sm-10">
+                                {{form.jawab2}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="id_jawab3" class="col-sm-2 col-form-label">Jawab3</label>
+                            <div class="col-sm-10">
+                                {{form.jawab3}}
+                            </div>
+                        </div>
+                        <div class="form-group row mt-3">
+                            <label for="id_jawab4" class="col-sm-2 col-form-label">Jawab4</label>
+                            <div class="col-sm-10">
+                                {{form.jawab4}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h5>Masukkan Jawaban Benar</h5>
+                {{form.sbenar}}
+                <div class="text-right mb-3">
+                    <button type="submit" class="btn btn-info">Post</button>
+                    <a href="/" class="btn btn-danger">Kembali</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
